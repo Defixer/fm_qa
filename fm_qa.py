@@ -15,16 +15,16 @@ def sign_in_creds():
 	with open(client_secret) as json_file:
 		data = json.load(json_file)
 
-	get_element('//a[@name="login_button"]')
-	username = browser.find_element_by_xpath("//input[@placeholder='User Name']")
+
+	username = get_element("//input[@placeholder='User Name']")
 	print("Username entered")
 	time.sleep(1)
 	username.send_keys(data["username"])
-	password = browser.find_element_by_xpath("//input[@placeholder='Password']")
+	password = get_element("//input[@placeholder='Password']")
 	password.send_keys(data["fm_password"])
 	print("Password entered")
 	time.sleep(1)
-	sign_in = browser.find_element_by_xpath("//a[@name='login_button']")
+	sign_in = get_element("//a[@name='login_button']")
 	sign_in.click()
 	print("Sign In clicked")
 	tutorial_done = get_element("//span[contains(text(),'Done')]")
